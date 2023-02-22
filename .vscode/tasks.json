@@ -1,0 +1,47 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "buildmac",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "-f",
+                "net7.0-macos",
+                "${workspaceFolder}/Samples/ControlCatalog/ControlCatalog.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/Samples/ControlCatalog/ControlCatalog.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "watch",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "--project",
+                "${workspaceFolder}/Samples/ControlCatalog/ControlCatalog.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}

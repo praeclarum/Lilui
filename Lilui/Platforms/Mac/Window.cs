@@ -32,6 +32,11 @@ public class Window : IWindow
             false
         );
     }
+
+    public void Show()
+    {
+        window.MakeKeyAndOrderFront(null);
+    }
 }
 
 #endif

@@ -17,4 +17,8 @@ public class Window : IWindow
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Title)));
         }
     }
+
+    public void Show()
+    {
+    }
 }

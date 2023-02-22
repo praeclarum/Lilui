@@ -57,6 +57,10 @@ public class Window : IWindow
             var err = Marshal.GetLastWin32Error();
             throw new System.Exception($"CreateWindow failed with error code {err}");
         }
+    }
+
+    public void Show()
+    {
         ShowWindow(hWnd, ShowWindowCommands.Show);
     }
 

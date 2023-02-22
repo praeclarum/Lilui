@@ -11,12 +11,15 @@ public class MainThread : IMainThread
     public MainThread()
     {
         NSApplication.Init();
+        var app = NSApplication.SharedApplication;
     }
 
     public void Run()
     {
         NSApplication.Main(Environment.GetCommandLineArgs());
     }
+
+    
 }
 
 #endif
