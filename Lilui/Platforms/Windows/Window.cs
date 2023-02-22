@@ -17,6 +17,19 @@ public class Window : IWindow
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
+    string title = "";
+    public string Title {
+        get => title;
+        set {
+            var v = value ?? "";
+            if (title == v)
+                return;
+            title = v;
+            SetWindowText(hWnd, title);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Title)));
+        }
+    }
+
     public Window()
     {
         var hInstance = GetModuleHandle(null);
@@ -51,6 +64,9 @@ public class Window : IWindow
     {
         return DefWindowProc(hWnd, msg, wParam, lParam);
     }
+
+    [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+    static extern bool SetWindowText(IntPtr hwnd, String lpString);
 
     [DllImport("user32.dll", SetLastError = true)]
     static extern bool ShowWindow(IntPtr hWnd, ShowWindowCommands nCmdShow);

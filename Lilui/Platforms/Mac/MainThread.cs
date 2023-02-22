@@ -1,3 +1,4 @@
+#if MACOS
 
 using System.ComponentModel;
 
@@ -17,3 +18,5 @@ public class MainThread : IMainThread
         NSApplication.Main(Environment.GetCommandLineArgs());
     }
 }
+
+#endif
